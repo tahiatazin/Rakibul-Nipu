@@ -48,7 +48,7 @@
 
   /* hero */
   .hero{position:relative;min-height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding-top:3.5rem;background:radial-gradient(ellipse 60% 55% at 50% 45%,#3a3a3a 0%,#121212 55%,#000 100%)}
-  .hero h1{position:absolute;left:0;right:0;top:50%;transform:translateY(-58%);font-family:var(--display);font-weight:400;line-height:.82;text-align:center;color:#d9d8d5;font-size:clamp(5rem,23vw,22rem);letter-spacing:-.01em;user-select:none}
+  .hero h1{position:absolute;z-index:3;left:0;right:0;top:50%;transform:translateY(-58%);font-family:var(--display);font-weight:400;line-height:.82;text-align:center;color:#d9d8d5;font-size:clamp(5rem,23vw,22rem);letter-spacing:-.01em;user-select:none}
   .hero h1 span{display:block}
   .hero .figure{position:relative;z-index:2;margin:0 auto;width:min(68vh,78vw);max-width:620px;transform:translateX(6%)}
   .hero .figure img{width:100%;filter:contrast(1.05)}
@@ -131,11 +131,11 @@
 
   /* photos */
   .photos{background:var(--coal)}
-  .wall{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,3vw,2.5rem)}
-  .tile{position:relative;display:block;padding:0;border:0;background:none;cursor:zoom-in;aspect-ratio:746/553;transform:rotate(var(--r,0deg));transition:transform .25s ease}
+  .wall{columns:3;column-gap:clamp(1rem,3vw,2.5rem)}
+  .tile{--bw:clamp(14px,2.6vw,36px);position:relative;display:block;width:100%;margin:0 0 clamp(1rem,3vw,2.5rem);padding:calc(var(--bw) * .6);border:0;background:none;cursor:zoom-in;break-inside:avoid;transform:rotate(var(--r,0deg));transition:transform .25s ease}
   .tile:hover,.tile:focus-visible{transform:rotate(0deg) scale(1.03);z-index:2}
-  .tile img{position:absolute;inset:5% 5.5% 7% 4.5%;width:91%;height:88%;object-fit:cover;object-position:50% 15%}
-  .tile::after{content:"";position:absolute;inset:0;background:url("images/torn-paper-frame.webp") center/100% 100% no-repeat;pointer-events:none}
+  .tile img{display:block;width:100%;height:auto}
+  .tile::after{content:"";position:absolute;inset:0;border:var(--bw) solid transparent;border-image:url("images/torn-paper-frame.webp") 70 stretch;pointer-events:none}
   .tile:nth-child(3n+1){--r:-1.6deg}
   .tile:nth-child(3n+2){--r:1.2deg}
   .tile:nth-child(4n){--r:2deg}
@@ -159,7 +159,7 @@
     .about-grid,.journey-grid,.band-lead,.kamal,.live-body{grid-template-columns:1fr}
     .about-photo,.journey-grid .portrait{position:static;max-width:520px}
     .band-pair,.projects{grid-template-columns:1fr}
-    .wall{grid-template-columns:1fr 1fr}
+    .wall{columns:2}
     .tracks li{grid-template-columns:1fr auto}
     .tracks p{grid-column:1/-1}
     .live-body{margin-top:-2rem}
@@ -371,18 +371,18 @@
     <div class="wrap">
       <h2 class="h2">Photos</h2>
       <div class="wall">
-        <button class="tile" type="button"><img src="images/photo-01.webp" alt="Playing with bandmates on an outdoor festival stage" loading="lazy"></button>
-        <button class="tile" type="button"><img src="images/photo-02.webp" alt="Performing to a packed hall under blue light" loading="lazy"></button>
-        <button class="tile" type="button"><img src="images/photo-03.webp" alt="Two guitarists playing side by side on stage" loading="lazy"></button>
-        <button class="tile" type="button"><img src="images/photo-04.webp" alt="Mid-solo on an outdoor stage in front of the speaker stacks" loading="lazy"></button>
-        <button class="tile" type="button"><img src="images/photo-05.webp" alt="Playing under warm stage lights" loading="lazy"></button>
-        <button class="tile" type="button"><img src="images/photo-06.webp" alt="Headbanging on stage, hair covering his face" loading="lazy"></button>
-        <button class="tile" type="button"><img src="images/photo-07.webp" alt="Playing seated under blue stage lights" loading="lazy"></button>
-        <button class="tile" type="button"><img src="images/photo-08.webp" alt="Leaning into a solo on an outdoor stage" loading="lazy"></button>
-        <button class="tile" type="button"><img src="images/photo-09.webp" alt="Smiling portrait with his guitar" loading="lazy"></button>
-        <button class="tile" type="button"><img src="images/photo-10.webp" alt="Sepia portrait holding a white guitar" loading="lazy"></button>
-        <button class="tile" type="button"><img src="images/photo-11.webp" alt="Black and white portrait with a Jackson guitar" loading="lazy"></button>
-        <button class="tile" type="button"><img src="images/photo-12.webp" alt="Black and white portrait against a weathered wall" loading="lazy"></button>
+        <button class="tile" type="button"><img src="images/photo-01.webp" width="840" height="560" alt="Playing with bandmates on an outdoor festival stage" loading="lazy"></button>
+        <button class="tile" type="button"><img src="images/photo-02.webp" width="1024" height="683" alt="Performing to a packed hall under blue light" loading="lazy"></button>
+        <button class="tile" type="button"><img src="images/photo-03.webp" width="733" height="1100" alt="Two guitarists playing side by side on stage" loading="lazy"></button>
+        <button class="tile" type="button"><img src="images/photo-04.webp" width="840" height="560" alt="Mid-solo on an outdoor stage in front of the speaker stacks" loading="lazy"></button>
+        <button class="tile" type="button"><img src="images/photo-05.webp" width="647" height="432" alt="Playing under warm stage lights" loading="lazy"></button>
+        <button class="tile" type="button"><img src="images/photo-06.webp" width="598" height="598" alt="Headbanging on stage, hair covering his face" loading="lazy"></button>
+        <button class="tile" type="button"><img src="images/photo-07.webp" width="571" height="576" alt="Playing seated under blue stage lights" loading="lazy"></button>
+        <button class="tile" type="button"><img src="images/photo-08.webp" width="576" height="384" alt="Leaning into a solo on an outdoor stage" loading="lazy"></button>
+        <button class="tile" type="button"><img src="images/photo-09.webp" width="611" height="611" alt="Smiling portrait with his guitar" loading="lazy"></button>
+        <button class="tile" type="button"><img src="images/photo-10.webp" width="720" height="1080" alt="Sepia portrait holding a white guitar" loading="lazy"></button>
+        <button class="tile" type="button"><img src="images/photo-11.webp" width="733" height="1100" alt="Black and white portrait with a Jackson guitar" loading="lazy"></button>
+        <button class="tile" type="button"><img src="images/photo-12.webp" width="738" height="1100" alt="Black and white portrait against a weathered wall" loading="lazy"></button>
       </div>
     </div>
   </section>
