@@ -134,7 +134,7 @@
   .wall{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,3vw,2.5rem)}
   .tile{position:relative;display:block;padding:0;border:0;background:none;cursor:zoom-in;aspect-ratio:746/553;transform:rotate(var(--r,0deg));transition:transform .25s ease}
   .tile:hover,.tile:focus-visible{transform:rotate(0deg) scale(1.03);z-index:2}
-  .tile img{position:absolute;inset:5% 5.5% 7% 4.5%;width:91%;height:88%;object-fit:cover}
+  .tile img{position:absolute;inset:5% 5.5% 7% 4.5%;width:91%;height:88%;object-fit:cover;object-position:50% 15%}
   .tile::after{content:"";position:absolute;inset:0;background:url("images/torn-paper-frame.webp") center/100% 100% no-repeat;pointer-events:none}
   .tile:nth-child(3n+1){--r:-1.6deg}
   .tile:nth-child(3n+2){--r:1.2deg}
