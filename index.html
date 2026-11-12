@@ -50,7 +50,7 @@
 
   /* hero */
   .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--black);padding:6.5rem 0 5rem}
-  .hero-bg{position:absolute;top:4.25rem;left:0;width:58%;height:calc(100% - 4.25rem);object-fit:cover;object-position:var(--focus,50% 0%);-webkit-mask-image:linear-gradient(90deg,#000 55%,transparent 100%);mask-image:linear-gradient(90deg,#000 55%,transparent 100%);filter:brightness(.82) contrast(1.06)}
+  .hero-bg{position:absolute;top:4.25rem;left:0;width:58%;height:calc(100% - 4.25rem);object-fit:cover;object-position:var(--focus,50% 22%);-webkit-mask-image:linear-gradient(90deg,#000 55%,transparent 100%);mask-image:linear-gradient(90deg,#000 55%,transparent 100%);filter:brightness(.9)}
   .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,transparent 35%)}
   .hero > .wrap{width:100%;max-width:none;padding-left:54%;padding-right:var(--gutter)}
   .hero-text{position:relative;z-index:2;max-width:48rem}
@@ -64,11 +64,13 @@
   .hero .sep{display:inline-block;width:3px;height:1.05em;margin:0 .55em;vertical-align:-.15em;border-radius:2px;background:linear-gradient(180deg,var(--gold),var(--violet))}
   .hero .intro{margin-top:1.4rem;color:#cfcfcf;font-size:clamp(1rem,1.15vw,1.4rem)}
   .hero .intro .sep{height:.95em;width:2px;margin:0 .6em}
+  .hero .credit{position:absolute;z-index:2;left:var(--gutter);bottom:1.25rem;font-size:.78rem;color:rgba(255,255,255,.55)}
   .hero .down{position:absolute;z-index:2;left:50%;bottom:1.5rem;transform:translateX(-50%);width:2.75rem;height:2.75rem;display:grid;place-items:center;color:#ddd;border-radius:50%}
   .hero .down:hover,.hero .down:active{color:var(--gold)}
   @media (max-width:900px){
     .hero{align-items:flex-end}
-    .hero-bg{width:100%;-webkit-mask-image:none;mask-image:none;filter:none;object-position:var(--focus,30% 0%)}
+    .hero-bg{width:100%;-webkit-mask-image:none;mask-image:none;filter:none;object-position:var(--focus,50% 18%)}
+    .hero .credit{left:auto;right:var(--gutter)}
     .hero::before{background:linear-gradient(0deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.72) 50%,rgba(0,0,0,.25) 100%)}
     .hero > .wrap{padding-left:var(--gutter)}
     .hero h1{font-size:clamp(4rem,15vw,7rem)}
@@ -216,7 +218,8 @@
   <!-- ===== OPENING SCREEN (big name + photo) ===== -->
   <section class="hero" id="top" aria-label="Rakibul Nipu">
     <!-- Background photo. To change it, upload a new photo to the images folder and change the file name here. -->
-    <img class="hero-bg" src="images/hero-stage.webp" alt="" width="2586" height="1728" fetchpriority="high">
+    <img class="hero-bg" src="images/hero-live.webp" alt="" width="1718" height="2576" fetchpriority="high">
+    <p class="credit">Photo: Faiaz Pixels</p>
     <div class="wrap">
       <div class="hero-text">
         <p class="kicker">Bangladeshi guitarist</p>
