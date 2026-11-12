@@ -52,13 +52,9 @@
 
   /* hero */
   .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--black);padding:6.5rem 0 5rem}
-  .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--focus,50% 31%)}
-  .hero-blur{position:absolute;inset:-60px;width:calc(100% + 120px);height:calc(100% + 120px);object-fit:cover;object-position:50% 40%;filter:blur(40px) brightness(.55) saturate(1.2)}
-  @media (min-width:901px){
-    .hero-bg{inset:0 auto 0 50%;width:auto;height:100%;aspect-ratio:1717/2576;transform:translateX(-78%);object-fit:cover;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 14%,#000 86%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 14%,#000 86%,transparent 100%)}
-  }
-  .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(0,0,0,.6) 0%,transparent 30%),linear-gradient(270deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.3) 45%,rgba(0,0,0,.25) 100%)}
-  .hero > .wrap{width:100%;max-width:none;padding-left:55%;padding-right:var(--gutter)}
+  .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--focus,50% 30%)}
+  .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(0,0,0,.55) 0%,transparent 30%),rgba(0,0,0,.5)}
+  .hero > .wrap{width:100%;max-width:none;padding-left:56%;padding-right:var(--gutter)}
   .hero-text{position:relative;z-index:2;max-width:48rem}
   .hero .kicker{font-size:clamp(.95rem,1.2vw,1.35rem);letter-spacing:.06em;text-transform:uppercase;color:#d6d6d6}
   .hero h1{font-family:var(--display);font-weight:400;font-size:clamp(4rem,8.5vw,11rem);line-height:.95;letter-spacing:.005em;margin:.35em 0 0;color:#fff}
@@ -76,7 +72,6 @@
   @media (max-width:900px){
     .hero{align-items:flex-end}
     .hero-bg{object-position:var(--focus,45% 20%)}
-    .hero-blur{display:none}
     .hero .credit{left:auto;right:var(--gutter)}
     .hero::before{background:linear-gradient(0deg,rgba(0,0,0,.85) 0%,rgba(0,0,0,.55) 45%,rgba(0,0,0,.3) 100%)}
     .hero > .wrap{padding-left:var(--gutter)}
@@ -225,7 +220,6 @@
   <!-- ===== OPENING SCREEN (big name + photo) ===== -->
   <section class="hero" id="top" aria-label="Rakibul Nipu">
     <!-- Background photo. To change it, upload a new photo to the images folder and change the file name here. -->
-    <img class="hero-blur" src="images/hero-gold.webp" alt="" aria-hidden="true">
     <img class="hero-bg" src="images/hero-gold.webp" alt="" width="1717" height="2576" fetchpriority="high">
     <div class="wrap">
       <div class="hero-text">
