@@ -206,7 +206,7 @@
     .links{grid-template-columns:1fr}
     .links a + a{padding-left:0;border-left:0}
   }
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tile{transition:none}}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tile{transition:none}.slides-frame img{transition-duration:.4s}}
 </style>
 </head>
 <body>
@@ -254,8 +254,8 @@
       <div>
         <h2 class="h2">Get to know<br>Rakibul Nipu</h2>
         <div class="prose">
-          <p class="lede">Nipu was born in Bangladesh and raised in Dhaka. His passion for music grew naturally: from a young age he was a curious listener who spent countless hours mastering the guitar.</p>
-          <p>At 18 he began studying classical guitar. A few years later he moved into progressive rock, heavy metal, jazz and fusion, where he found his true calling. Symphonic music, hard rock and heavy metal remain his favourite genres.</p>
+          <p class="lede">Born and raised in Dhaka, Bangladesh, Nipu developed a love for music at an early age. He was always curious about different sounds and spent countless hours listening to music and improving his guitar skills.</p>
+          <p>At 18, he started learning classical guitar. A few years later, he explored progressive rock, heavy metal, jazz, and fusion, where he found his true passion. Symphonic music, hard rock, and heavy metal remain his favorite genres.</p>
         </div>
         <div class="influences">
           <div>
@@ -462,10 +462,9 @@
     var box=document.querySelector('.slides'); if(!box) return;
     var imgs=box.querySelectorAll('.slides-frame img'), dots=box.querySelectorAll('.slides-dots button'), i=0, t;
     function show(n){ imgs[i].classList.remove('on'); dots[i].classList.remove('on'); i=(n+imgs.length)%imgs.length; imgs[i].classList.add('on'); dots[i].classList.add('on'); }
-    function start(){ stop(); if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) t=setInterval(function(){show(i+1)},4000); }
+    function start(){ stop(); t=setInterval(function(){show(i+1)},4000); }
     function stop(){ clearInterval(t); }
     dots.forEach(function(d,n){ d.addEventListener('click',function(){ show(n); start(); }); });
-    box.addEventListener('mouseenter',stop); box.addEventListener('mouseleave',start);
     imgs.forEach(function(im){ im.loading='eager'; });
     start();
   })();
