@@ -27,7 +27,7 @@
     --max:1240px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;scroll-padding-top:4rem}
+  html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
   body{background:var(--black);color:var(--paper);font-family:var(--body);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
   img{display:block;max-width:100%;height:auto}
   a{color:inherit}
@@ -38,9 +38,10 @@
 
   /* header */
   .bar{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(0,0,0,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--ash)}
-  .bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:3.5rem}
-  .brand{font-family:var(--display);font-size:1.25rem;letter-spacing:.02em;text-decoration:none}
-  .bar nav{overflow-x:auto;scrollbar-width:none}
+  .bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:4.25rem}
+  .brand{display:block;flex:none;padding:.35rem 0}
+  .brand img{height:3rem;width:auto;max-width:none}
+  .bar nav{overflow-x:auto;scrollbar-width:none;min-width:0}
   .bar nav::-webkit-scrollbar{display:none}
   .bar ul{display:flex;gap:1.5rem;list-style:none;white-space:nowrap}
   .bar nav a{text-decoration:none;font-size:.9rem;color:var(--smoke)}
@@ -167,8 +168,8 @@
     .live-body{margin-top:-2rem}
   }
   @media (max-width:560px){
-    .bar .brand{display:none}
-    .bar .wrap{justify-content:flex-start}
+    .brand img{height:2.4rem}
+    .bar .wrap{gap:1rem}
     .hero{justify-content:flex-end}
     .hero::before{background:linear-gradient(0deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.75) 55%,rgba(0,0,0,.35) 100%)}
     .influences{grid-template-columns:1fr}
@@ -185,7 +186,7 @@
 <!-- ===== MENU AT THE TOP ===== -->
 <header class="bar">
   <div class="wrap">
-    <a class="brand" href="#top">Rakibul Nipu</a>
+    <a class="brand" href="#top"><img src="images/signature.webp" alt="Rakibul Nipu" width="809" height="290"></a>
     <nav aria-label="Sections">
       <ul>
         <li><a href="#about">About</a></li>
