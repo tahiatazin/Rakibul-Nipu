@@ -22,8 +22,8 @@
     --paper:#f1e8d8;
     --amber:#d98a2b;
     --glow:rgba(217,138,43,.16);
-    --light-l:radial-gradient(ellipse 55% 85% at -5% 45%,rgba(226,140,40,.34) 0%,rgba(150,80,20,.16) 40%,transparent 75%);
-    --light-r:radial-gradient(ellipse 55% 85% at 105% 45%,rgba(226,140,40,.34) 0%,rgba(150,80,20,.16) 40%,transparent 75%);
+    --light-l:radial-gradient(ellipse 45% 70% at -5% 40%,rgba(226,140,40,.32) 0%,rgba(150,80,20,.14) 40%,transparent 75%),radial-gradient(ellipse 40% 55% at 105% 105%,rgba(226,140,40,.24) 0%,rgba(150,80,20,.1) 40%,transparent 75%);
+    --light-r:radial-gradient(ellipse 45% 70% at 105% 40%,rgba(226,140,40,.32) 0%,rgba(150,80,20,.14) 40%,transparent 75%),radial-gradient(ellipse 40% 55% at -5% 105%,rgba(226,140,40,.24) 0%,rgba(150,80,20,.1) 40%,transparent 75%);
     --violet:#b98cf5;
     --gold:#c2a15f;
     --display:"Anton","Impact","Arial Narrow Bold",sans-serif;
@@ -60,15 +60,15 @@
   .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(0,0,0,.55) 0%,transparent 30%),rgba(0,0,0,.5)}
   .hero > .wrap{width:100%;max-width:none;padding-left:56%;padding-right:var(--gutter)}
   .hero-text{position:relative;z-index:2;max-width:48rem}
-  .hero .kicker{font-size:clamp(.95rem,1.2vw,1.35rem);letter-spacing:.06em;text-transform:uppercase;color:#d6d6d6}
-  .hero h1{font-family:var(--display);font-weight:400;font-size:clamp(4rem,8.5vw,11rem);line-height:.95;letter-spacing:.005em;margin:.35em 0 0;color:#fff}
+  .hero .kicker{font-size:clamp(.95rem,1.2vw,1.35rem);letter-spacing:.06em;text-transform:uppercase;color:#e3d6bf}
+  .hero h1{font-family:var(--display);font-weight:400;font-size:clamp(4rem,8.5vw,11rem);line-height:.95;letter-spacing:.005em;margin:.35em 0 0;color:var(--paper)}
   .hero h1 span{display:block}
   .hero .rule{width:7rem;height:4px;margin:2rem 0;background:linear-gradient(90deg,var(--gold),var(--violet)) left/0% 100% no-repeat,var(--paper);transition:background-size .5s ease}
   .hero-text:hover .rule,.hero-text:active .rule{background-size:100% 100%,auto}
-  .hero .tagline{font-size:clamp(1.15rem,1.7vw,2rem);line-height:1.45;color:#f2f2f2}
+  .hero .tagline{font-size:clamp(1.15rem,1.7vw,2rem);line-height:1.45;color:var(--paper)}
   .hero .role{white-space:nowrap}
   .hero .sep{display:inline-block;width:3px;height:1.05em;margin:0 .55em;vertical-align:-.15em;border-radius:2px;background:linear-gradient(180deg,var(--gold),var(--violet))}
-  .hero .intro{margin-top:1.4rem;color:#cfcfcf;font-size:clamp(1rem,1.15vw,1.4rem)}
+  .hero .intro{margin-top:1.4rem;color:#d8ccb8;font-size:clamp(1rem,1.15vw,1.4rem)}
   .hero .intro .sep{height:.95em;width:2px;margin:0 .6em}
   .hero .credit{position:absolute;z-index:2;left:var(--gutter);bottom:1.25rem;font-size:.78rem;color:rgba(255,255,255,.55)}
   .hero .down{position:absolute;z-index:2;left:50%;bottom:1.5rem;transform:translateX(-50%);width:2.75rem;height:2.75rem;display:grid;place-items:center;color:#ddd;border-radius:50%}
