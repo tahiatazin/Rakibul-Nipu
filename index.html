@@ -106,6 +106,12 @@
   .h2{color:var(--paper)}
   .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,6vw,5rem);align-items:start}
   .about-photo{position:sticky;top:5rem}
+  .slides-frame{position:relative;aspect-ratio:1000/1163;overflow:hidden}
+  .slides-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+  .slides-frame img.on{opacity:1}
+  .slides-dots{display:flex;gap:.6rem;justify-content:center;margin-top:1rem}
+  .slides-dots button{width:.6rem;height:.6rem;padding:0;border:0;border-radius:50%;background:rgba(241,232,216,.3);cursor:pointer;transition:background .3s,width .3s}
+  .slides-dots button.on{width:1.8rem;border-radius:1rem;background:linear-gradient(90deg,var(--gold),var(--violet))}
   .influences{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--ash)}
   .influences h3{color:var(--gold);font-size:.95rem;font-weight:700;margin-bottom:.6rem}
   .influences ul{list-style:none;color:#d8ccb8;font-size:.98rem;line-height:1.7}
@@ -262,8 +268,20 @@
           </div>
         </div>
       </div>
-      <figure class="about-photo">
-        <img src="images/about.webp" alt="Black and white portrait of Rakibul Nipu holding his white guitar towards the camera" width="700" height="814" loading="lazy">
+      <!-- About slideshow. To add a photo: upload it to images, copy one <img> line below and change the file name, then copy one <button> line in the dots. -->
+      <figure class="about-photo slides" aria-roledescription="slideshow">
+        <div class="slides-frame">
+          <img src="images/about-1.webp" alt="Rakibul Nipu holding his white guitar towards the camera" width="1000" height="1163" class="on" loading="lazy">
+          <img src="images/about-2.webp" alt="Rakibul Nipu playing a gold guitar under purple stage light" width="1000" height="1163" loading="lazy">
+          <img src="images/about-3.webp" alt="Rakibul Nipu playing guitar on a dark stage under spotlights" width="1000" height="1163" loading="lazy">
+          <img src="images/about-4.webp" alt="Rakibul Nipu headbanging on stage with his guitar" width="1000" height="1163" loading="lazy">
+        </div>
+        <div class="slides-dots">
+          <button type="button" aria-label="Show photo 1" class="on"></button>
+          <button type="button" aria-label="Show photo 2"></button>
+          <button type="button" aria-label="Show photo 3"></button>
+          <button type="button" aria-label="Show photo 4"></button>
+        </div>
       </figure>
     </div>
   </section>
@@ -436,6 +454,17 @@
 </dialog>
 
 <script>
+  (function(){
+    var box=document.querySelector('.slides'); if(!box) return;
+    var imgs=box.querySelectorAll('.slides-frame img'), dots=box.querySelectorAll('.slides-dots button'), i=0, t;
+    function show(n){ imgs[i].classList.remove('on'); dots[i].classList.remove('on'); i=(n+imgs.length)%imgs.length; imgs[i].classList.add('on'); dots[i].classList.add('on'); }
+    function start(){ stop(); if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) t=setInterval(function(){show(i+1)},4000); }
+    function stop(){ clearInterval(t); }
+    dots.forEach(function(d,n){ d.addEventListener('click',function(){ show(n); start(); }); });
+    box.addEventListener('mouseenter',stop); box.addEventListener('mouseleave',start);
+    imgs.forEach(function(im){ im.loading='eager'; });
+    start();
+  })();
   (function(){
     var bar=document.querySelector('.bar');
     function onScroll(){ bar.classList.toggle('top', window.scrollY < 40); }
