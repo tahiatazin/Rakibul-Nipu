@@ -59,6 +59,8 @@
   .hero .rule{width:7rem;height:4px;margin:2rem 0;background:linear-gradient(90deg,var(--gold),var(--violet)) left/0% 100% no-repeat,var(--paper);transition:background-size .5s ease}
   .hero-text:hover .rule,.hero-text:active .rule{background-size:100% 100%,auto}
   .hero .tagline{font-size:clamp(1.25rem,2.1vw,1.7rem);line-height:1.4;color:#f2f2f2;max-width:30em}
+  .hero .sep{display:inline-block;width:3px;height:1.05em;margin:0 .55em;vertical-align:-.15em;border-radius:2px;background:linear-gradient(180deg,var(--gold),var(--violet))}
+  .hero .role{white-space:nowrap}
   .hero .intro{margin-top:1.4rem;color:#c9c9c9;max-width:34em}
   .hero .down{position:absolute;z-index:2;left:50%;bottom:1.5rem;transform:translateX(-50%);width:2.75rem;height:2.75rem;display:grid;place-items:center;color:#ddd;border-radius:50%}
   .hero .down:hover,.hero .down:active{color:var(--gold)}
@@ -213,7 +215,7 @@
         <p class="kicker">Bangladeshi guitarist</p>
         <h1><span>Rakibul</span><span>Nipu</span></h1>
         <div class="rule"></div>
-        <p class="tagline">Lead Guitarist of Bay of Bengal | Guest Guitarist for Warfaze and Vikings</p>
+        <p class="tagline"><span class="role">Lead Guitarist of Bay of Bengal</span> <span class="sep" aria-hidden="true"></span> <span class="role">Guest Guitarist for Warfaze and Vikings</span></p>
         <p class="intro">From Gravian to Warfaze, Poizon Green and Bay of Bengal, with more than 300 concerts across Bangladesh along the way.</p>
       </div>
     </div>
