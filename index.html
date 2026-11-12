@@ -38,7 +38,9 @@
   .skip:focus{left:1rem;top:1rem}
 
   /* header */
-  .bar{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(0,0,0,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--ash)}
+  .bar{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(0,0,0,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--ash);transition:background .3s ease,border-color .3s ease}
+  .bar.top{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-color:transparent}
+  .bar.top nav a{color:#e6e6e6}
   .bar .wrap{max-width:none;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:4.25rem}
   .brand{display:block;flex:none;padding:.35rem 0}
   .brand img{height:3rem;width:auto;max-width:none}
@@ -50,9 +52,9 @@
 
   /* hero */
   .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--black);padding:6.5rem 0 5rem}
-  .hero-bg{position:absolute;top:4.25rem;left:0;width:58%;height:calc(100% - 4.25rem);object-fit:cover;object-position:var(--focus,50% 40%);-webkit-mask-image:linear-gradient(90deg,#000 55%,transparent 100%);mask-image:linear-gradient(90deg,#000 55%,transparent 100%);filter:brightness(.9)}
-  .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,transparent 35%)}
-  .hero > .wrap{width:100%;max-width:none;padding-left:54%;padding-right:var(--gutter)}
+  .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--focus,30% 12%)}
+  .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(0,0,0,.55) 0%,transparent 30%),rgba(0,0,0,.55)}
+  .hero > .wrap{width:100%;max-width:none;padding-left:37%;padding-right:var(--gutter)}
   .hero-text{position:relative;z-index:2;max-width:48rem}
   .hero .kicker{font-size:clamp(.95rem,1.2vw,1.35rem);letter-spacing:.06em;text-transform:uppercase;color:#d6d6d6}
   .hero h1{font-family:var(--display);font-weight:400;font-size:clamp(4rem,8.5vw,11rem);line-height:.95;letter-spacing:.005em;margin:.35em 0 0;color:#fff}
@@ -69,9 +71,9 @@
   .hero .down:hover,.hero .down:active{color:var(--gold)}
   @media (max-width:900px){
     .hero{align-items:flex-end}
-    .hero-bg{width:100%;-webkit-mask-image:none;mask-image:none;filter:none;object-position:var(--focus,30% 30%)}
+    .hero-bg{object-position:var(--focus,24% 8%)}
     .hero .credit{left:auto;right:var(--gutter)}
-    .hero::before{background:linear-gradient(0deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.7) 45%,rgba(0,0,0,.1) 75%)}
+    .hero::before{background:linear-gradient(0deg,rgba(0,0,0,.85) 0%,rgba(0,0,0,.55) 45%,rgba(0,0,0,.3) 100%)}
     .hero > .wrap{padding-left:var(--gutter)}
     .hero h1{font-size:clamp(4rem,15vw,7rem)}
   }
@@ -196,7 +198,7 @@
 <a class="skip" href="#about">Skip to content</a>
 
 <!-- ===== MENU AT THE TOP ===== -->
-<header class="bar">
+<header class="bar top">
   <div class="wrap">
     <a class="brand" href="#top"><img src="images/signature.webp" alt="Rakibul Nipu" width="809" height="290"></a>
     <nav aria-label="Sections">
@@ -218,7 +220,7 @@
   <!-- ===== OPENING SCREEN (big name + photo) ===== -->
   <section class="hero" id="top" aria-label="Rakibul Nipu">
     <!-- Background photo. To change it, upload a new photo to the images folder and change the file name here. -->
-    <img class="hero-bg" src="images/hero-live-2.webp" alt="" width="1466" height="2200" fetchpriority="high">
+    <img class="hero-bg" src="images/hero-stage.webp" alt="" width="3232" height="2160" fetchpriority="high">
     <div class="wrap">
       <div class="hero-text">
         <p class="kicker">Bangladeshi guitarist</p>
@@ -425,6 +427,11 @@
 </dialog>
 
 <script>
+  (function(){
+    var bar=document.querySelector('.bar');
+    function onScroll(){ bar.classList.toggle('top', window.scrollY < 40); }
+    onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  })();
   (function(){
     var d=document.getElementById('viewer'), big=d.querySelector('img');
     if(!d.showModal) return;
